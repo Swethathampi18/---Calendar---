@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --background: 40 33% 97%;
+    --foreground: 220 20% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 18%;
+
+    --primary: 220 60% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 40 30% 93%;
+    --secondary-foreground: 220 20% 18%;
+
+    --muted: 40 20% 94%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 220 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 220 60% 50%;
+
+    --radius: 0.75rem;
+
+    /* Calendar-specific tokens */
+    --cal-range-bg: 220 60% 95%;
+    --cal-range-start: 220 60% 50%;
+    --cal-range-end: 220 60% 50%;
+    --cal-today: 40 80% 55%;
+    --cal-hover: 220 40% 96%;
+    --cal-header-font: 'Playfair Display', serif;
+    --cal-body-font: 'Inter', sans-serif;
+    --cal-shadow: 0 8px 32px -8px hsl(220 20% 18% / 0.12);
+    --cal-shadow-hover: 0 12px 40px -8px hsl(220 20% 18% / 0.18);
+
+    /* Month theme tokens (overridden dynamically) */
+    --month-primary: 220 60% 50%;
+    --month-bg: 40 33% 97%;
+    --month-accent: 220 60% 50%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Month themes */
+/* January - Icy blue */
+[data-month="0"] { --month-primary: 210 50% 60%; --month-bg: 210 40% 96%; --month-accent: 210 50% 60%; --background: 210 35% 95%; --card: 210 30% 99%; --border: 210 25% 88%; }
+/* February - Romantic pink */
+[data-month="1"] { --month-primary: 340 60% 55%; --month-bg: 340 40% 96%; --month-accent: 340 60% 55%; --background: 340 35% 95%; --card: 340 25% 99%; --border: 340 20% 88%; }
+/* March - Fresh green */
+[data-month="2"] { --month-primary: 140 45% 45%; --month-bg: 140 30% 95%; --month-accent: 140 45% 45%; --background: 140 28% 94%; --card: 140 25% 99%; --border: 140 18% 87%; }
+/* April - Spring green/gold */
+[data-month="3"] { --month-primary: 150 50% 40%; --month-bg: 150 30% 95%; --month-accent: 45 80% 55%; --background: 130 25% 94%; --card: 120 20% 99%; --border: 130 18% 87%; }
+/* May - Rose */
+[data-month="4"] { --month-primary: 340 50% 55%; --month-bg: 340 25% 96%; --month-accent: 340 50% 55%; --background: 345 28% 95%; --card: 345 20% 99%; --border: 345 18% 88%; }
+/* June - Ocean cyan */
+[data-month="5"] { --month-primary: 195 80% 45%; --month-bg: 195 40% 95%; --month-accent: 195 80% 45%; --background: 195 35% 94%; --card: 195 25% 99%; --border: 195 22% 87%; }
+/* July - Sunflower gold */
+[data-month="6"] { --month-primary: 40 80% 50%; --month-bg: 40 50% 95%; --month-accent: 40 80% 50%; --background: 42 45% 94%; --card: 42 30% 99%; --border: 42 25% 87%; }
+/* August - Lavender */
+[data-month="7"] { --month-primary: 270 40% 50%; --month-bg: 270 25% 96%; --month-accent: 270 40% 50%; --background: 270 22% 95%; --card: 270 18% 99%; --border: 270 15% 88%; }
+/* September - Warm amber */
+[data-month="8"] { --month-primary: 25 70% 50%; --month-bg: 25 40% 95%; --month-accent: 25 70% 50%; --background: 28 38% 94%; --card: 28 25% 99%; --border: 28 20% 87%; }
+/* October - Fiery red-orange */
+[data-month="9"] { --month-primary: 10 70% 50%; --month-bg: 10 40% 95%; --month-accent: 10 70% 50%; --background: 12 35% 94%; --card: 12 22% 99%; --border: 12 18% 87%; }
+/* November - Misty brown */
+[data-month="10"] { --month-primary: 30 20% 45%; --month-bg: 30 15% 94%; --month-accent: 30 20% 45%; --background: 30 14% 93%; --card: 30 12% 98%; --border: 30 10% 86%; }
+/* December - Cozy blue */
+[data-month="11"] { --month-primary: 200 40% 40%; --month-bg: 200 25% 94%; --month-accent: 15 60% 50%; --background: 200 22% 93%; --card: 200 18% 99%; --border: 200 15% 87%; }
+
+/* Flip animation */
+.calendar-flip-container {
+  perspective: 2000px;
+}
+
+.calendar-flip {
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendar-flip.flipping-forward {
+  animation: flipForward 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendar-flip.flipping-backward {
+  animation: flipBackward 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes flipForward {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(-90deg); }
+  50.01% { transform: rotateX(90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+@keyframes flipBackward {
+  0% { transform: rotateX(0deg); }
+  50% { transform: rotateX(90deg); }
+  50.01% { transform: rotateX(-90deg); }
+  100% { transform: rotateX(0deg); }
+}
+
+/* Emoji picker animation */
+.emoji-picker-enter {
+  animation: scaleIn 0.2s ease-out;
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--cal-body-font);
+    transition: background-color 0.5s ease;
+  }
+}
