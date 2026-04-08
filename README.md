@@ -115,33 +115,55 @@ The test suite covers component rendering, date range selection logic, localStor
 ---
 
 ## 🗂️ Project Structure
-
+ 
 ```
-src/
-├── main.tsx                    ← ReactDOM entry point
-├── App.tsx                     ← Root component
-├── index.css                   ← Global CSS variables, keyframes, 3D perspective
+--Calendar--/
+├── public/
+│   ├── placeholder.svg
+│   └── robots.txt
 │
-├── hooks/
-│   └── useCalendar.ts          ← All calendar state & logic (custom hook)
-│                                  Handles: navigation, range selection,
-│                                  emoji marks, notes, theme switching
+├── src/
+│   ├── assets/                 ← Static assets (images, icons, fonts)
+│   │
+│   ├── components/
+│   │   ├── calendar/           ← All calendar-specific components
+│   │   ├── ui/                 ← Shadcn UI primitives (Button, Dialog, etc.)
+│   │   └── NavLink.tsx         ← Navigation link component
+│   │
+│   ├── hooks/                  ← Custom React hooks
+│   │                              (useCalendar, range selection, emoji marks)
+│   │
+│   ├── lib/                    ← Utility functions (cn, date helpers, etc.)
+│   │
+│   ├── pages/                  ← Page-level route components
+│   │
+│   ├── test/                   ← Vitest unit test files
+│   │
+│   ├── App.css
+│   ├── App.tsx                 ← Root component with routing
+│   ├── index.css               ← Global CSS variables, 3D flip keyframes
+│   ├── main.tsx                ← ReactDOM entry point
+│   └── vite-env.d.ts           ← Vite type declarations
 │
-└── components/
-    ├── WallCalendar.tsx        ← Main container — assembles all parts
-    ├── WallCalendar.css        ← Card, binding, dark mode, responsive grid
-    │
-    ├── CalendarHeader.tsx      ← Hero image + directional flip + nav bar
-    ├── CalendarHeader.css      ← flip-next / flip-prev 3D keyframes
-    │
-    ├── CalendarGrid.tsx        ← Date grid, range states, emoji picker popup
-    ├── CalendarGrid.css        ← All day cell visual states + picker styles
-    │
-    ├── NotesPanel.tsx          ← Ruled-paper textarea + emoji stamp toolbar
-    └── NotesPanel.css
+├── .gitignore
+├── bun.lock
+├── bun.lockb
+├── components.json             ← Shadcn UI component registry config
+├── eslint.config.js
+├── index.html                  ← HTML entry point
+├── package-lock.json
+├── package.json
+├── playwright-fixture.ts       ← Shared Playwright test fixtures
+├── playwright.config.ts        ← Playwright E2E test configuration
+├── postcss.config.js
+├── tailwind.config.ts          ← Tailwind theme, custom keyframes, colors
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts              ← Vite build configuration
+└── vitest.config.ts            ← Vitest unit test configuration
 ```
-
----
+ 
 
 ## 🎨 Customization
 
