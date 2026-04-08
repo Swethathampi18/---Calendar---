@@ -6,7 +6,7 @@
 
 </div>
 <div align="center">
-**Live Demo: https://calendar-6k9l.vercel.app/**
+Live Demo: https://calendar-6k9l.vercel.app/
 </div>
 
 ## ✨ Feature Highlights
