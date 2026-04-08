@@ -5,9 +5,9 @@
 **A highly interactive, aesthetically refined digital wall calendar that captures the nostalgic feel of a physical calendar — built with modern web technology.**
 
 </div>
-
+<div align="center">
 **Live Demo: https://calendar-6k9l.vercel.app/**
-
+</div>
 
 ## ✨ Feature Highlights
 
