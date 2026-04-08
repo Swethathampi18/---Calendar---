@@ -10,11 +10,11 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
 
-[Live Demo]: https://calendar-6k9l.vercel.app/
+
 
 </div>
 
----
+[Live Demo]: https://calendar-6k9l.vercel.app/
 
 ## ✨ Feature Highlights
 
@@ -33,9 +33,9 @@ Select a date range with two clicks:
 
 ### 🏷️ Per-Day Emoji Marks
 Annotate any date with an emoji to visually flag it at a glance:
-- **Desktop:** Right-click any day cell to open the emoji picker
-- **Mobile:** Long-press (500 ms) any day to trigger the picker
-- Choose from **16 curated emojis** covering celebrations, reminders, travel, health, and more
+- **Desktop:** Click any day cell to open the emoji picker
+- **Mobile:** Click any day to open the emoji picker
+- Choose from **20 curated emojis** covering celebrations, reminders, travel, health, and more
 - The emoji appears as a small badge in the top-right corner of the day cell with a satisfying bounce animation
 - Marks are saved to **`localStorage`** — they persist across page refreshes and browser sessions
 - Remove a mark at any time by opening the picker and clicking "✕ Remove mark"
@@ -49,23 +49,8 @@ Annotate any date with an emoji to visually flag it at a glance:
 Each month has its own dedicated notes section:
 - Freeform text area styled as **ruled paper**
 - Auto-saves to `localStorage` as you type — no save button needed
-- Quick-insert toolbar with **8 emoji stamps** (⭐ ✅ 🔥 📌 💡 ⚠️ 🎉 🏖️)
 - When a date range is selected, the notes panel displays it as a contextual tag
 - Character counter with a warning state at 85% capacity
-
-### 🌙 Dark Mode
-Toggle between light and dark themes via the moon/sun button in the navigation bar. Dark mode overrides CSS variables globally — the seasonal accent colors still apply on top of the dark palette.
-
-### 🗺️ Holiday Markers
-US public holidays are pre-loaded and displayed with an italic style and an amber dot indicator. Hover over a marked day to see the holiday name in a tooltip.
-
-### 📱 Fully Responsive Layout
-
-| Breakpoint | Layout |
-|---|---|
-| Mobile (< 820px) | Single column — image stacked above grid, notes below |
-| Desktop (≥ 820px) | Two-column — grid on the left, notes panel on the right |
-| Wide (≥ 1100px) | Wider card with more breathing room |
 
 ### 🖨️ Print-Ready
 CSS print styles automatically hide navigation controls, the binding, and interactive hints — producing a clean, ink-friendly calendar view.
@@ -184,16 +169,7 @@ Open `src/hooks/useCalendar.ts` and edit the `theme` object on any entry in `MON
 }
 ```
 
-### Add or change holidays
-In `src/hooks/useCalendar.ts`, find the `HOLIDAYS` object and add entries in `"M-D"` format:
 
-```ts
-const HOLIDAYS = {
-  '8-15': 'Independence Day',
-  '10-2': 'Gandhi Jayanti',
-  // ...
-}
-```
 
 ### Adjust animation speed
 In `src/index.css`, change the duration on the flip keyframes:
@@ -232,14 +208,7 @@ Deploy the `/dist` output to any static host:
 
 ---
 
-## 📄 License
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
-
----
 
 <div align="center">
 
-Built with ❤️ using React · TypeScript · Tailwind CSS
-
-</div>
+Author: Swetha Thampi M
